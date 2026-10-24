@@ -1,3 +1,3 @@
-module github.com/DeveloperAromal/warden
+module github.com/DeveloperAromal/hornet
 
 go 1.26.5
