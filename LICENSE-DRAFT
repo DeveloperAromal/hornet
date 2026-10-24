@@ -1,0 +1,82 @@
+HORNET CUSTOM SOURCE-AVAILABLE LICENSE
+
+Copyright (c) 2026 Aromal S.
+
+Licensor: Aromal S.
+Project: HORNET
+
+1. Definitions
+
+"Licensed Material" means the HORNET source code and other project materials
+provided by the Licensor and owned by the Licensor or which the Licensor has
+authority to license, together with modifications and derivative works of
+those materials to the extent they incorporate or are based on them. It
+excludes components identified as subject to separate license terms. This
+definition does not claim ownership of independently owned contributions or
+third-party materials.
+
+"Commercial Redistribution" means distributing or making copies of Licensed
+Material, in source or object-code form, available to another person or entity
+for or in connection with commercial advantage or monetary compensation.
+Examples include selling copies, bundling copies in a paid product, or
+providing copies as part of a paid service. Internal use by an organization,
+without providing copies to another person or entity, is not Commercial
+Redistribution.
+
+"Paid API Security Service" means a product or service offered to third
+parties for a fee, subscription, or other commercial consideration whose
+purpose is to provide API security functionality and that uses, incorporates,
+or is derived from Licensed Material.
+
+2. Permission
+
+Subject to this License, the Licensor grants you a worldwide, non-exclusive,
+royalty-free permission to access, use, reproduce, and modify the Licensed
+Material, including for personal development, testing, evaluation, internal
+production use, and other commercial use, except for the restricted activities
+in Section 3.
+
+You may privately modify and use the Licensed Material, including in
+production. You may also redistribute unmodified or modified Licensed
+Material for noncommercial purposes, provided that you include this License
+and retain all copyright and license notices.
+
+Ordinary commercial hosting and managed use are permitted, except where they
+constitute a restricted activity under Section 3.
+
+3. Activities Requiring Separate Permission
+
+You may not engage in Commercial Redistribution without the Licensor's prior
+explicit written permission.
+
+You may not build, offer, operate, or provide a Paid API Security Service
+without the Licensor's prior explicit written permission, whether or not that
+activity redistributes copies of the Licensed Material.
+
+The Licensor may grant these permissions under a separate commercial license
+or other written agreement.
+
+4. Conditions and Reservation of Rights
+
+When redistributing Licensed Material as permitted by this License, you must
+provide recipients with a copy of this License and preserve applicable
+copyright and license notices. You must identify modifications that you make.
+
+All rights not expressly granted by this License are reserved by the Licensor.
+This License does not grant rights to the HORNET name, logo, or other
+trademarks.
+
+5. Third-Party Materials
+
+Materials identified as subject to separate license terms remain subject to
+those terms. This License does not replace or expand any rights granted by a
+third-party license.
+
+6. Disclaimer
+
+THE LICENSED MATERIAL IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, AND NON-INFRINGEMENT. TO THE MAXIMUM EXTENT PERMITTED BY
+LAW, THE LICENSOR WILL NOT BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY ARISING FROM, OUT OF, OR IN CONNECTION WITH THE LICENSED MATERIAL
+OR ITS USE.
