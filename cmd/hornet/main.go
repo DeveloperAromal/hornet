@@ -7,9 +7,14 @@ import (
 	proxy "github.com/DeveloperAromal/hornet/internal/proxy"
 	"github.com/DeveloperAromal/hornet/internal/ratelimiter"
 	"github.com/DeveloperAromal/hornet/internal/requestguard"
+
+	banner "github.com/DeveloperAromal/hornet/internal/cli"
 )
 
 func main() {
+
+	banner.Banner()
+
 	limiter, err := ratelimiter.NewLimiter(ratelimiter.Config{
 		RatePerSecond: 10,
 		Burst:         20,
