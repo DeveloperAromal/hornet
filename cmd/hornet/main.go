@@ -4,8 +4,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/DeveloperAromal/hornet/internal/middleware/ratelimiter"
 	proxy "github.com/DeveloperAromal/hornet/internal/proxy"
+	"github.com/DeveloperAromal/hornet/internal/ratelimiter"
+	"github.com/DeveloperAromal/hornet/internal/requestguard"
 )
 
 func main() {
@@ -26,7 +27,10 @@ func main() {
 	}
 
 	handler := ratelimiter.RateLimiter(limiter, nil)(
-		http.HandlerFunc(p.ProxyRequestHandler(rp)),
+		requestguard.Limits{
+			MaxURLLength: 8 * 1024,
+			MaxBodySize:  10 * 1024 * 1024,
+		}.RequestGuard(http.HandlerFunc(p.ProxyRequestHandler(rp))),
 	)
 	http.Handle("/", handler)
 
