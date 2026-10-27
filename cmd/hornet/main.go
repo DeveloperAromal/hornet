@@ -4,10 +4,12 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/DeveloperAromal/hornet/internal/auth"
 	banner "github.com/DeveloperAromal/hornet/internal/cli"
-	proxy "github.com/DeveloperAromal/hornet/internal/proxy"
+	"github.com/DeveloperAromal/hornet/internal/middleware"
+	"github.com/DeveloperAromal/hornet/internal/proxy"
 	"github.com/DeveloperAromal/hornet/internal/ratelimiter"
 	"github.com/DeveloperAromal/hornet/internal/requestguard"
 )
@@ -39,23 +41,28 @@ func main() {
 		log.Fatal(err)
 	}
 
-	var handler http.Handler = http.HandlerFunc(
-		p.ProxyRequestHandler(rp),
-	)
-
-	handler = verifier.Authentication(handler)
-
-	handler = (requestguard.Limits{
+	guard := requestguard.Limits{
 		MaxURLLength: 8 * 1024,
 		MaxBodySize:  10 * 1024 * 1024,
-	}).RequestGuard(handler)
+	}
 
-	handler = ratelimiter.RateLimiter(limiter, nil)(handler)
+	handler := middleware.Pipeline(
+		http.HandlerFunc(p.ProxyRequestHandler(rp)),
+		ratelimiter.RateLimiter(limiter, nil),
+		guard.RequestGuard,
+		verifier.Authentication,
+	)
 
-	http.Handle("/", handler)
+	server := &http.Server{
+		Addr:              ":9000",
+		Handler:           handler,
+		ReadHeaderTimeout: 5 * time.Second,
+	}
 
 	log.Println("HORNET listening on :9000")
-	if err := http.ListenAndServe(":9000", nil); err != nil {
+
+	if err := server.ListenAndServe(); err != nil &&
+		err != http.ErrServerClosed {
 		log.Fatal(err)
 	}
 }
